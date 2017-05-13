@@ -1,0 +1,80 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/app/partidos" style="font-size: 32px"><b><<</b></a>
+        </div>
+        <div> </div>
+        <div class="navbar-header">
+            <p class="navbar-brand" style="text-transform: uppercase"><em> {{partido.deporte}}  --</em></p>
+            <p class="navbar-brand">ID:{{partido.id}}</p>
+
+            <!--<table class="navbar-brand">-->
+                <!--<tr><td></td>-->
+                    <!--<td>-->
+                        <!--<p>{{partido.deporte}}</p>-->
+                <!--</td></tr>-->
+                <!--<tr><td></td>-->
+                    <!--<td>-->
+                    <!--<p>{{partido.id}}</p>-->
+                <!--</td></tr>-->
+            <!--</table>-->
+        </div>
+        <!--<div class="navbar-header">-->
+            <!--<a class="navbar-brand">| Partido: #{{partido.id}}</a>-->
+            <!--&lt;!&ndash;  href="/" &ndash;&gt;-->
+        <!--</div>-->
+
+        <div id="navbar" class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Opciones <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu"
+                            style="text-align: center; background-color: mediumaquamarine">
+                            <li><button class="btn btn-success" ng-click="onRecomendar(partido)">
+                                <span class="glyphicons"></span>Recomendar
+                            </button></li>
+                            <li role="separator" class="divider"></li>
+                            <li><button class="btn btn-danger" ng-click="onEliminar(partido)">
+                                <span class="glyphicons"></span>Eliminar
+                            </button></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>
+                    <button ng-show="partido.inscripcion" class="btn btn-danger" ng-click="accionesPartido.desanotarme(partido)">
+                        <span class="glyphicons"></span>Desanotarme
+                    </button>
+                    <button ng-show="!partido.inscripcion" class="btn btn-success" ng-click="accionesPartido.anotarme(partido)">
+                        <span class="glyphicons"></span>¡Quiero participar!
+                    </button>
+                </td>
+                <!--<button type="button" class="btn btn-default"  style="margin-top: 8px;" ng-click="onNuevoPartido()">-->
+                    <!--Anotarme</button>-->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<table class="table table-striped" class="genericTable">
+    <thead>
+    <tr>
+        <th style="text-align: center;">Nombre</th>
+        <th style="text-align: center;">Puesto</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="text-align: center;" ng-repeat="inscripto in inscriptos">
+        <td>{{ inscripto.usuario.name }}</td>
+        <td>{{ inscripto.puesto }}</td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="mapa">
+    <map center="{{partido.lugar}}">
+        <marker position="{{partido.lugar}}"></marker>
+    </map>
+</div>

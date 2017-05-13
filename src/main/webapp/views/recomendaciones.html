@@ -1,0 +1,40 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Recomendaciones</a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<table class="table table-striped" class="genericTable">
+    <thead>
+    <tr>
+        <th style="text-align: center;">Deporte</th>
+        <th style="text-align: center;">Cantidad Personas</th>
+        <th style="text-align: center;">Lugar</th>
+        <th style="text-align: center;">De</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="text-align: center;" ng-repeat="recomendacion in recomendaciones">
+        <td>{{ recomendacion.partido.deporte }}</td>
+        <td>{{ recomendacion.partido.totalInscriptos }} de {{ recomendacion.partido.cant_personas }}</td>
+        <td>{{ recomendacion.partido.lugar}}</td>
+        <td>{{ recomendacion.usuario.name }}</td>
+        <td>
+            <button class="btn btn-success" ng-click="aceptar(recomendacion)">
+                <span class="glyphicons"></span>¡Quiero participar!
+            </button>
+            <button class="btn btn-danger" ng-click="rechazar(recomendacion)">
+                <span class="glyphicons"></span>Rechazar
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>

@@ -1,0 +1,77 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Entidad partido</a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right" style="margin-top: 7px;">
+                <button class="btn btn-default" ng-click="cancelar()">
+                    <span class="glyphicons"></span>Cancelar
+                </button>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container partidoDiv">
+    <form role="form">
+        <table class="table" style="width: 50%; margin-left: 25%; text-align: right;">
+            <tr ng-show="editando">
+                <td><label>Partido id</label></td>
+                <td><p style="text-align: left">{{idPartido}}</p></td>
+            </tr>
+            <tr>
+                <td><label for="cant_personas">Cantidad personas</label></td>
+                <td><input type="text" class="form-control" id="cant_personas" ng-model="cant_personas"
+                           style="width: 150px"></td>
+            </tr>
+            <tr>
+                <td><label for="deporte">Deporte</label></td>
+                <td><select type="text" class="form-control" id="deporte" ng-model="deporte" style="width: 140px">
+                    <option>Futbol</option>
+                    <option>Tenis</option>
+                    <option>Rugby</option>
+                    <option>Basquet</option>
+                    <option>Volley</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td><label for="usuarioAsociado">Usuario titular</label></td>
+                <td><select type="text" class="form-control" id="usuarioAsociado"
+                            ng-model="usuarioAsociado" style="width: 140px"
+                            ng-options="usuario.id for usuario in usuarios track by usuario.id">
+                </select></td>
+            </tr>
+            <tr ng-show="usuarioAsociado">
+                <td colspan="2">{{usuarioAsociado.name}}
+                    <img class="logo-user img-rounded" check-image ng-src="{{usuarioAsociado.photoUrl}}"
+                         style="margin: 8px"></td>
+            </tr>
+            <tr>
+                <td><label for="direccion">Lugar</label></td>
+                <td><input id="direccion" class="form-control" places-auto-complete size="50"
+                           ng-model="address"
+                           xxx-component-restrictions="{country:'us'}"
+                           types="{{types}}"
+                           on-place-changed="placeChanged(place)"
+                /></td>
+            </tr>
+        </table>
+        <p><button class="btn btn-success" ng-click="guardar()">
+            <span class="glyphicons"></span>Guardar partido</button>
+        </p>
+
+        <div class="form-group">
+            <div class="mapa">
+                <map>
+                    <marker position={{place.geometry.location.lat()+","+place.geometry.location.lng()}}></marker>
+                </map>
+            </div>
+        </div>
+
+    </form>
+</div>
+<p style="text-align: center;">
+    * El atributo 'id' es autogenerado. <br>
+</p>

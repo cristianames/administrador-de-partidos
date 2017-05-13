@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Recomendar</a>
+        </div>
+    </div>
+</nav>
+
+<table class="table table-striped" class="genericTable" ng-show="ready">
+    <thead>
+    <tr>
+        <th style="text-align: center;"></th>
+        <th style="text-align: center;">Amigo</th>
+        <th style="text-align: center;">Recomendar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="text-align: center;" ng-repeat="friend in friends">
+        <td>
+            <img class="img-rounded"  src={{friend.photoUrl}}>
+        </td>
+        <td>{{ friend.name}}</td>
+        <td style="width: 100px">
+            <button class="btn btn-success" ng-click="recomendar(friend)">
+                <span class="glyphicons"></span>Recomendar
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+

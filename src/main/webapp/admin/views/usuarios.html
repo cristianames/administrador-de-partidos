@@ -1,0 +1,64 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Administrando usuarios</a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right" style="margin-top: 7px;">
+                <button class="btn btn-primary" ng-click="crear()">
+                    <span class="glyphicons"></span>Crear usuario
+                </button>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container partidoDiv" ng-show="usuarioSeleccionado">
+    <br>
+
+    <table align="center" style="alignment: center; text-align: left"><tr>
+            <td><img class="logo-user img-rounded" check-image ng-src={{usuarioSeleccionado.photoUrl}}
+                 style="margin: 8px"></td>
+            <td>
+                <p><b>ID:</b> {{ usuarioSeleccionado.id }}</p>
+                <p><b>facebookID:</b> {{ usuarioSeleccionado.facebook_id }}</p>
+                <p><b>Nombre(fb):</b> {{ usuarioSeleccionado.name }}</p>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+    <p>
+        <button class="btn btn-default" ng-click="editar(usuarioSeleccionado)">
+            <span class="glyphicons"></span>Editar
+        </button>
+        <button class="btn btn-danger" ng-click="eliminar(usuarioSeleccionado)">
+            <span class="glyphicons"></span>Eliminar
+        </button>
+        <button class="btn btn-success" ng-click="deseleccionar()">
+            <span class="glyphicons"></span>Cerrar
+        </button>
+    </p>
+</div>
+
+<table class="table table-striped" class="genericTable">
+    <thead>
+    <tr>
+        <th style="text-align: center;"></th>
+        <th style="text-align: center;">Id</th>
+        <th style="text-align: center;"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="text-align: center;" ng-repeat="usuario in usuarios">
+        <td><img class="logo-user img-rounded" check-image ng-src={{usuario.photoUrl}}></td>
+        <td>{{ usuario.id }}</td>
+        <td>
+            <button class="btn btn-info" ng-click="info(usuario)">
+                <span class="glyphicons"></span>Ver mas
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>

@@ -1,0 +1,59 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Administrando Partidos</a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <button class="btn btn-primary" ng-click="crear()">
+                    <span class="glyphicons"></span>Crear partido
+                </button>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container partidoDiv" ng-show="partidoSeleccionado">
+    <p><b>PartidoID:</b> {{ partidoSeleccionado.id }}</p>
+    <p><b>UsuarioID:</b> {{ partidoSeleccionado.usuario.id }}</p>
+    <p><b>Deporte:</b> {{ partidoSeleccionado.deporte }}</p>
+    <p><b>Lugar:</b> {{ partidoSeleccionado.lugar }}</p>
+    <p>
+        <button class="btn btn-default" ng-click="editar(partidoSeleccionado)">
+            <span class="glyphicons"></span>Editar
+        </button>
+        <button class="btn btn-danger" ng-click="eliminar(partidoSeleccionado)">
+            <span class="glyphicons"></span>Eliminar
+        </button>
+        <button class="btn btn-success" ng-click="deseleccionar()">
+            <span class="glyphicons"></span>Cerrar
+        </button>
+    </p>
+</div>
+
+<table class="table table-striped" class="genericTable">
+    <thead>
+    <tr>
+        <th style="text-align: center;"></th>
+        <th style="text-align: center;">Deporte</th>
+        <th style="text-align: center;">Cantidad Personas</th>
+        <th style="text-align: center;">Lugar</th>
+        <th style="text-align: center;">De</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="text-align: center;" ng-repeat="partido in partidos">
+        <td><img class="logo-user img-rounded" check-image ng-src={{partido.usuario.photoUrl}}></td>
+        <td>{{ partido.deporte }}</td>
+        <td>{{ partido.totalInscriptos }} de {{ partido.cant_personas }}</td>
+        <td>{{ partido.lugar}}</td>
+        <td>{{ partido.usuario.name }}</td>
+        <td>
+            <button class="btn btn-info" ng-click="info(partido)">
+                <span class="glyphicons"></span>Informacion
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>

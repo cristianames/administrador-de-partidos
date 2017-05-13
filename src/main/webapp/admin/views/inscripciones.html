@@ -1,0 +1,52 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Administrando inscripciones</a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container partidoDiv" ng-show="inscriptoSeleccionado">
+    <p><b>ID:</b> {{ inscriptoSeleccionado.id }}</p>
+    <p><b>PartidoID:</b> {{ inscriptoSeleccionado.partido.id }}</p>
+    <p><b>UsuarioID:</b> {{ inscriptoSeleccionado.usuario.id }}</p>
+    <p><b>Puesto:</b> {{ inscriptoSeleccionado.puesto }}</p>
+    <p><button class="btn btn-success" ng-click="deseleccionar()">
+        <span class="glyphicons"></span>Cerrar
+    </button></p>
+</div>
+
+<table class="table table-striped" class="genericTable">
+    <thead>
+    <tr>
+        <th style="text-align: center;"></th>
+        <th style="text-align: center;">Deporte</th>
+        <th style="text-align: center;">Cantidad Personas</th>
+        <th style="text-align: center;">Lugar</th>
+        <th style="text-align: center;">De</th>
+        <th style="text-align: center;">Administrar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr style="text-align: center;" ng-repeat="inscripto in inscriptos">
+        <td><img class="logo-user img-rounded" check-image ng-src={{inscripto.usuario.photoUrl}}></td>
+        <td>{{ inscripto.partido.deporte }}</td>
+        <td>{{ inscripto.partido.totalInscriptos }} de {{ inscripto.partido.cant_personas }}</td>
+        <td>{{ inscripto.partido.lugar}}</td>
+        <td>{{ inscripto.partido.usuario.name }}</td>
+        <td>
+            <button class="btn btn-danger" ng-click="eliminar(inscripto)">
+                <span class="glyphicons"></span>Eliminar
+            </button>
+            <button class="btn btn-info" ng-click="info(inscripto)">
+                <span class="glyphicons"></span>Informacion
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>

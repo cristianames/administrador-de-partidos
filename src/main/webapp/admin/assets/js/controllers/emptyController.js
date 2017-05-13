@@ -1,0 +1,3 @@
+adminapp.controller('emptyController', function() {
+
+});
