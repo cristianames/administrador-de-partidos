@@ -1,12 +1,11 @@
-Partidos Manager
+Administrador de Partidos
 =============================================
 
 ## Integrantes
-- Fernando Velcic
-- Gaston Mazzeo
-- Bruno Leonardo Mendez
-- Cristian Eric Ames Masek
-- Ezequiel Ayzenberg
+- Cristian Ames Masek
+- Facundo Encina
+- Fernando Molina
+- FALTAN DIEGO Y KEVIN
 
 ## Requerimientos
 - JDK 1.8
