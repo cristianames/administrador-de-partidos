@@ -5,7 +5,8 @@ Administrador de Partidos
 - Cristian Ames Masek
 - Facundo Encina
 - Fernando Molina
-- FALTAN DIEGO Y KEVIN
+- Diego Pedro
+- FALTA KEVIN
 
 ## Requerimientos
 - JDK 1.8
